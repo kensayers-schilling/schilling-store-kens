@@ -1,0 +1,20 @@
+/*
+    This script adds items to the db, then runs a report on them
+ */
+def toyCategory = Category.findByName('Toy') ?: new Category(name:'Toy').save(failOnError:true)
+
+def spinnerManufacturer = Manufacturer.findByName('Spinner Mfg Inc.') ?: new Manufacturer(name:'Spinner Mfg Inc.').save(failOnError:true)
+
+def redSpinner = Product.findByName('Red Spinner') ?: new Product(name:'Red Spinner',description:'This is a Red Spinner',weight:1.0,manufacturer:spinnerManufacturer,category:toyCategory, price:0.50).save(failOnError:true)
+def blueSpinner = Product.findByName('Blue Spinner') ?: new Product(name:'Blue Spinner',description:'This is a Blue Spinner',weight:1.0,manufacturer:spinnerManufacturer,category:toyCategory,price:1.50).save(failOnError:true)
+def greenSpinner = Product.findByName('Green Spinner') ?: new Product(name:'Green Spinner',description:'This is a Blue Spinner',weight:1.0,manufacturer:spinnerManufacturer,category:toyCategory,price:1.50).save(failOnError:true)
+
+def orderOne = ProductOrder.get(1) ?: new ProductOrder(number: 'oo0001', product: redSpinner, quantity: 2).save(failOnError:true)
+def orderTwo = ProductOrder.get(2) ?: new ProductOrder(number: 'oo0002', product: redSpinner, quantity: 3).save(failOnError:true)
+def orderThree = ProductOrder.get(3) ?: new ProductOrder(number: 'oo0003', product: blueSpinner, quantity: 2).save(failOnError:true)
+def orderFour = ProductOrder.get(4) ?: new ProductOrder(number: 'oo0004', product: greenSpinner, quantity: 1).save(failOnError:true)
+
+ProductOrder.list().each { productOrder ->
+    def product = productOrder.product
+    println "${productOrder.quantity} ${product.name} ${product.description} ${product.price} ${product.category.name} ${product.manufacturer.name}"
+}

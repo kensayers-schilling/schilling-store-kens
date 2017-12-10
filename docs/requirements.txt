@@ -1,0 +1,30 @@
+category report
+- show all categories with associated products for each
+
+how
+- mock it up in balsamiq
+- generate-controller Category -force
+- generate-views Category -force
+- add the report method based on the index method
+- add the report view
+- run the app and see the report view at localhost:8080/category/report
+- change the view to show the category and then the products for that category
+- all names should be links to that object
+- add a link on the index page of category to the new report page
+
+dashboard
+- show a view which gives the statistics we care about
+- one screen shows
+-- a list of categories,
+-- a list of manufacturers
+-- a list of products
+-- a list of orders
+
+- secondary views for category and manufacturer
+-- show each manufacturer and all the products for that manufacturer
+-- show each category and all the products for that category
+
+how to
+- mock it up with balsamiq
+- create the controller
+- generate the views
