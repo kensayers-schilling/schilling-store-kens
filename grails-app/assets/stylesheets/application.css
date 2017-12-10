@@ -13,6 +13,7 @@
 *= require mobile
 *= require_self
 */
+/*
 table {
     border-top: 2px solid #DFDFDF;
     border-collapse: collapse;
@@ -25,3 +26,4 @@ td, th {
     text-align: center;
     vertical-align: top;
 }
+*/
